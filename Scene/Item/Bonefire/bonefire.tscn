@@ -1,0 +1,322 @@
+[gd_scene load_steps=24 format=3 uid="uid://cntqfikkwaucf"]
+
+[ext_resource type="Script" uid="uid://ihp08f272qef" path="res://Scene/Item/Bonefire/bonefire.gd" id="1_bt412"]
+[ext_resource type="Texture2D" uid="uid://dcypc2gqstddc" path="res://Sprites/Items/Bonefire/bonefire.png" id="2_bt412"]
+[ext_resource type="Texture2D" uid="uid://crbvvhr53uaav" path="res://Sprites/Items/Bonefire/fire_0.png" id="3_rctmd"]
+[ext_resource type="Texture2D" uid="uid://u43yoa80jvty" path="res://Sprites/Items/Bonefire/fire_1.png" id="4_6kj5l"]
+[ext_resource type="Texture2D" uid="uid://cpighhfcor7b5" path="res://Sprites/Items/Bonefire/fire_2.png" id="5_fsais"]
+[ext_resource type="Texture2D" uid="uid://du5iqifv5y56k" path="res://Sprites/Items/Bonefire/fire_3.png" id="6_wxf4x"]
+[ext_resource type="Texture2D" uid="uid://2x3pjneyy3xe" path="res://Sprites/Items/Bonefire/fire_4.png" id="7_p6ahy"]
+[ext_resource type="Texture2D" uid="uid://cwprpu0bw8o1e" path="res://Sprites/Items/Bonefire/fire_5.png" id="8_hnd16"]
+[ext_resource type="Texture2D" uid="uid://dmuk1e8ovbxom" path="res://Sprites/Items/Bonefire/fire_6.png" id="9_wpnuo"]
+[ext_resource type="Texture2D" uid="uid://dcgo31drftb7y" path="res://Sprites/Items/Bonefire/fire_7.png" id="10_t1xx6"]
+[ext_resource type="AudioStream" uid="uid://dg0cj28jj0ojn" path="res://Sounds/fire_sound.mp3" id="11_fsais"]
+[ext_resource type="AudioStream" uid="uid://cwcee0n5d2y4b" path="res://Sounds/slow_up.mp3" id="12_ia1rx"]
+[ext_resource type="AudioStream" uid="uid://dasiv8da4f5da" path="res://Sounds/speed_up.mp3" id="13_w04fn"]
+[ext_resource type="AudioStream" uid="uid://j8odnqw5dea6" path="res://Sounds/dark_dying.mp3" id="14_w04fn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7c5d4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rctmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6kj5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fsais")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wxf4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p6ahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hnd16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wpnuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t1xx6")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 8.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wxf4x"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="Animation" id="Animation_cq2im"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bonefire:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.168627, 0.168627, 0.168627, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bonefire/Fire:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio_slow:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_speed:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bhlvr"]
+resource_name = "life"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"defeat"
+}, {
+"args": [],
+"method": &"win"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bonefire:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bonefire/Fire:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_fire"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio_slow:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio_speed:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1m7mk"]
+_data = {
+&"RESET": SubResource("Animation_cq2im"),
+&"life": SubResource("Animation_bhlvr")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhlvr"]
+radius = 149.164
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wxf4x"]
+radius = 23.0
+height = 150.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w04fn"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wrhlh"]
+polygon = PackedVector2Array(-1.28601, -16.4422, -5.071, -8.84787, -23.7191, -1.55069, -29.4169, -5.97057, -54.0599, 11.7698, -51.8297, 24.7323, -60.356, 33.9139, -53.6978, 47.5031, -45.7901, 49.0741, -46.7262, 58.8784, -29.6369, 68.9758, -11.6237, 59.782, -9.71903, 65.4717, 8.62785, 69.8753, 29.4899, 62.8915, 35.7982, 50.2343, 58.2394, 41.6674, 67.7222, 38.4929, 59.778, 8.46144, 61.638, -20.6339, 49.9453, -14.6106, 41.7161, -20.2921, 27.8012, -20.9067, 11.0416, -20.569)
+
+[node name="Bonefire" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_bt412")
+
+[node name="Bonefire" type="Node2D" parent="."]
+modulate = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="Bonefire" type="Sprite2D" parent="Bonefire"]
+texture = ExtResource("2_bt412")
+
+[node name="Fire" type="AnimatedSprite2D" parent="Bonefire"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-4, -49)
+scale = Vector2(0.813559, 0.2189)
+sprite_frames = SubResource("SpriteFrames_7c5d4")
+animation = &"fire"
+frame_progress = 0.929421
+
+[node name="Light" type="Node2D" parent="Bonefire/Fire"]
+
+[node name="Light" type="PointLight2D" parent="Bonefire/Fire/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(4.91666, 223.847)
+rotation = -3.14159
+scale = Vector2(0.329, 1.06)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_wxf4x")
+
+[node name="Shadow" type="PointLight2D" parent="Bonefire/Fire/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(4.91666, 223.847)
+rotation = 3.14159
+scale = Vector2(0.329, 1.06)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_wxf4x")
+
+[node name="Animation_item" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_1m7mk")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bhlvr")
+debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_fsais")
+max_distance = 1500.0
+
+[node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_ia1rx")
+volume_db = 24.0
+max_distance = 1500.0
+
+[node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_w04fn")
+volume_db = 24.0
+max_distance = 1500.0
+
+[node name="Audio_die" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_w04fn")
+volume_db = 10.0
+max_distance = 1500.0
+
+[node name="Static" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_wxf4x")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+material = SubResource("CanvasItemMaterial_w04fn")
+position = Vector2(-12, -27)
+rotation = 0.323034
+occluder = SubResource("OccluderPolygon2D_wrhlh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

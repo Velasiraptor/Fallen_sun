@@ -1,0 +1,332 @@
+[gd_scene load_steps=18 format=3 uid="uid://xdlwxpk7n6yc"]
+
+[ext_resource type="Script" uid="uid://dc6fw1aygp77r" path="res://Scene/Item/Woody/woody.gd" id="1_j701a"]
+[ext_resource type="Texture2D" uid="uid://c6buttvxymgb0" path="res://icon.svg" id="2_ssgvn"]
+[ext_resource type="Texture2D" uid="uid://cdrbiv2w365oj" path="res://Sprites/Items/Woody/Woody_0.png" id="3_k7epb"]
+[ext_resource type="Texture2D" uid="uid://dx78413ogbk4u" path="res://Sprites/Items/Woody/Woody_1.png" id="4_tew66"]
+[ext_resource type="Texture2D" uid="uid://bxew5h25js4ex" path="res://Sprites/Items/Woody/Woody_3.png" id="5_xvxvl"]
+[ext_resource type="Texture2D" uid="uid://n0u5dqah2bjy" path="res://Sprites/Items/Woody/Woody_4.png" id="6_ko405"]
+[ext_resource type="Texture2D" uid="uid://dbspsf712ufro" path="res://Sprites/Items/Woody/Woody_5.png" id="7_j701a"]
+[ext_resource type="AudioStream" uid="uid://c4k302e0u6a3j" path="res://Sounds/woodie.mp3" id="8_k7epb"]
+[ext_resource type="AudioStream" uid="uid://cwcee0n5d2y4b" path="res://Sounds/slow_up.mp3" id="9_xvxvl"]
+[ext_resource type="AudioStream" uid="uid://dasiv8da4f5da" path="res://Sounds/speed_up.mp3" id="10_ko405"]
+[ext_resource type="AudioStream" uid="uid://j8odnqw5dea6" path="res://Sounds/dark_dying.mp3" id="11_ko405"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ko405"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k7epb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tew66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xvxvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ko405")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j701a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ko405")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ko405")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j701a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j701a")
+}],
+"loop": true,
+"name": &"woody",
+"speed": 8.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ssgvn"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="Animation" id="Animation_k7epb"]
+resource_name = "woody"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"defeat"
+}, {
+"args": [],
+"method": &"win"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_woody"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Woody:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Woody/Woody:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Woody/Woody_idle:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio_slow:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Audio_speed:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tew66"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Woody:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Woody/Woody:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Woody/Woody_idle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_slow:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio_speed:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tew66"]
+_data = {
+&"RESET": SubResource("Animation_tew66"),
+&"woody": SubResource("Animation_k7epb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jc7yk"]
+radius = 36.0139
+
+[node name="Woody" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_j701a")
+speed_animation = 1.5
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(122, 15)
+scale = Vector2(11.6953, 4.84375)
+texture = ExtResource("2_ssgvn")
+
+[node name="Woody" type="Node2D" parent="."]
+modulate = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Woody_idle" type="Sprite2D" parent="Woody"]
+position = Vector2(0, -27)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_k7epb")
+
+[node name="Woody" type="AnimatedSprite2D" parent="Woody"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -27)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ko405")
+animation = &"woody"
+
+[node name="Light" type="Node2D" parent="Woody/Woody"]
+
+[node name="Light" type="PointLight2D" parent="Woody/Woody/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(4.91666, 0.513489)
+rotation = -3.14159
+scale = Vector2(0.2, 0.2)
+color = Color(1, 1, 1, 0.701961)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_ssgvn")
+
+[node name="Shadow" type="PointLight2D" parent="Woody/Woody/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(4.91666, 0.513489)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_ssgvn")
+
+[node name="Animation_item" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_tew66")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -25)
+shape = SubResource("CircleShape2D_jc7yk")
+debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_k7epb")
+max_distance = 1500.0
+
+[node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_xvxvl")
+volume_db = 24.0
+max_distance = 1500.0
+
+[node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_ko405")
+volume_db = 24.0
+max_distance = 1500.0
+
+[node name="Audio_die" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_ko405")
+volume_db = 10.0
+max_distance = 1500.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,319 @@
+[gd_scene load_steps=19 format=3 uid="uid://y58mpkq8hns3"]
+
+[ext_resource type="Script" uid="uid://b4sqd56omvj2y" path="res://Scene/Item/Fireplace/fireplace.gd" id="1_n1vg7"]
+[ext_resource type="Texture2D" uid="uid://crbvvhr53uaav" path="res://Sprites/Items/Bonefire/fire_0.png" id="3_8t8wd"]
+[ext_resource type="Texture2D" uid="uid://u43yoa80jvty" path="res://Sprites/Items/Bonefire/fire_1.png" id="4_pv21f"]
+[ext_resource type="Texture2D" uid="uid://cpighhfcor7b5" path="res://Sprites/Items/Bonefire/fire_2.png" id="5_o8541"]
+[ext_resource type="Texture2D" uid="uid://du5iqifv5y56k" path="res://Sprites/Items/Bonefire/fire_3.png" id="6_gn203"]
+[ext_resource type="Texture2D" uid="uid://2x3pjneyy3xe" path="res://Sprites/Items/Bonefire/fire_4.png" id="7_ccj8f"]
+[ext_resource type="Texture2D" uid="uid://cwprpu0bw8o1e" path="res://Sprites/Items/Bonefire/fire_5.png" id="8_5qwmp"]
+[ext_resource type="Texture2D" uid="uid://dmuk1e8ovbxom" path="res://Sprites/Items/Bonefire/fire_6.png" id="9_odgeo"]
+[ext_resource type="Texture2D" uid="uid://dcgo31drftb7y" path="res://Sprites/Items/Bonefire/fire_7.png" id="10_8jig4"]
+[ext_resource type="AudioStream" uid="uid://dg0cj28jj0ojn" path="res://Sounds/fire_sound.mp3" id="11_yxq8b"]
+[ext_resource type="AudioStream" uid="uid://cwcee0n5d2y4b" path="res://Sounds/slow_up.mp3" id="12_jgr07"]
+[ext_resource type="AudioStream" uid="uid://dasiv8da4f5da" path="res://Sounds/speed_up.mp3" id="13_ycvit"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0uet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8t8wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pv21f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o8541")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gn203")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ccj8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5qwmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_odgeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8jig4")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 8.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fax85"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="Animation" id="Animation_cwx73"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fireplace:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio_slow:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio_speed:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fireplace/Fire/Light/Light:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fireplace/Fire/Light/Shadow:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fax85"]
+resource_name = "life"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"defeat"
+}, {
+"args": [],
+"method": &"win"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"animation_fire_off"
+}, {
+"args": [],
+"method": &"animation_fire"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fireplace:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_slow:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio_speed:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fireplace/Fire/Light/Light:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Fireplace/Fire/Light/Shadow:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwx73"]
+_data = {
+&"RESET": SubResource("Animation_cwx73"),
+&"life": SubResource("Animation_fax85")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3damk"]
+radius = 49.0918
+
+[node name="Fireplace" type="Area2D" groups=["item_in_home"]]
+collision_layer = 4
+collision_mask = 10
+monitoring = false
+monitorable = false
+script = ExtResource("1_n1vg7")
+
+[node name="Fireplace" type="Node2D" parent="."]
+modulate = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Fire" type="AnimatedSprite2D" parent="Fireplace"]
+unique_name_in_owner = true
+position = Vector2(-4, -49)
+scale = Vector2(0.813559, 0.2189)
+sprite_frames = SubResource("SpriteFrames_y0uet")
+animation = &"fire"
+frame_progress = 0.981689
+
+[node name="Light" type="Node2D" parent="Fireplace/Fire"]
+
+[node name="Light" type="PointLight2D" parent="Fireplace/Fire/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(10.8129, -328.231)
+rotation = -3.14159
+scale = Vector2(0.329, 1.06)
+color = Color(1, 1, 1, 0)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_fax85")
+
+[node name="Shadow" type="PointLight2D" parent="Fireplace/Fire/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(10.8183, -328.231)
+rotation = 3.14159
+scale = Vector2(0.329, 1.06)
+color = Color(1, 1, 1, 0)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_fax85")
+
+[node name="Animation_item" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_cwx73")
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-13, -170)
+shape = SubResource("CircleShape2D_3damk")
+debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_yxq8b")
+volume_db = -10.0
+max_distance = 1500.0
+
+[node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_jgr07")
+volume_db = 24.0
+max_distance = 1500.0
+
+[node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_ycvit")
+volume_db = 24.0
+max_distance = 1500.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

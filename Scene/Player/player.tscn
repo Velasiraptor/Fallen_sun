@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://bvqr8biyyos56"]
+
+[ext_resource type="Texture2D" uid="uid://c6buttvxymgb0" path="res://icon.svg" id="1_67a6e"]
+[ext_resource type="Script" uid="uid://dpbfkgtdyx4s3" path="res://Scene/Player/player.gd" id="1_yic5t"]
+[ext_resource type="Texture2D" uid="uid://eyqcfadetex5" path="res://Sprites/Player/Rabbit_1.png" id="3_g0r71"]
+[ext_resource type="Texture2D" uid="uid://s81er0iiksyy" path="res://Sprites/Lights/light_2.png" id="3_uuj77"]
+[ext_resource type="Texture2D" uid="uid://cpkxbsq6fbbpu" path="res://Sprites/Player/Rabbit_2.png" id="4_jd8gp"]
+[ext_resource type="Texture2D" uid="uid://b24pivixnkpda" path="res://Sprites/Player/Rabbit_3.png" id="5_ewflj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88wa8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jd8gp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g0r71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jd8gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ewflj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uuj77"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jd8gp"]
+height = 44.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g0r71"]
+load_path = "res://.godot/imported/light_1.png-c7959758d226dce3df42482f57594dfb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_88wa8"]
+load_path = "res://.godot/imported/light_1.png-c7959758d226dce3df42482f57594dfb.ctex"
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_yic5t")
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(104, 0.5)
+scale = Vector2(5.03125, 2.27344)
+texture = ExtResource("1_67a6e")
+
+[node name="Rabbit" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_88wa8")
+animation = &"idle"
+offset = Vector2(0, -222.5)
+
+[node name="Light_big" type="Node2D" parent="Rabbit"]
+unique_name_in_owner = true
+position = Vector2(60, -93.3333)
+scale = Vector2(3.66667, 3.66667)
+
+[node name="Light" type="PointLight2D" parent="Rabbit/Light_big"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-1.52588e-05, -0.999998)
+rotation = 3.14159
+scale = Vector2(0.06, 0.06)
+color = Color(1, 1, 1, 0.584314)
+shadow_filter = 2
+shadow_filter_smooth = 3.0
+texture = ExtResource("3_uuj77")
+
+[node name="Shadow" type="PointLight2D" parent="Rabbit/Light_big"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-1.52588e-05, -0.999998)
+rotation = 3.14159
+scale = Vector2(0.06, 0.06)
+color = Color(1, 1, 1, 0.584314)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_uuj77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+rotation = -1.56993
+shape = SubResource("CapsuleShape2D_jd8gp")
+
+[node name="Light_Ray" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -29)
+
+[node name="Light" type="PointLight2D" parent="Light_Ray"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-27, -32)
+rotation = -2.22604
+scale = Vector2(0.110149, 0.101937)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_g0r71")
+offset = Vector2(-1500, 1500)
+
+[node name="Shadow" type="PointLight2D" parent="Light_Ray"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-27, -32)
+rotation = 4.05715
+scale = Vector2(0.110149, 0.101937)
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_88wa8")
+offset = Vector2(-1500, 1500)
+
+[node name="Area_light" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -29)
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area_light"]
+polygon = PackedVector2Array(29, -34, 29, 35, 234, 65, 233, -64)
+
+[node name="Audio_step" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = 10.0

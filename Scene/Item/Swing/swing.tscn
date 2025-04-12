@@ -1,0 +1,367 @@
+[gd_scene load_steps=20 format=3 uid="uid://fa1hfho37hfk"]
+
+[ext_resource type="Script" uid="uid://cimsrdjj3n0ak" path="res://Scene/Item/Swing/swing.gd" id="1_esmd8"]
+[ext_resource type="Texture2D" uid="uid://c6buttvxymgb0" path="res://icon.svg" id="1_xjwbo"]
+[ext_resource type="Texture2D" uid="uid://ug8gq3o2vqhc" path="res://Sprites/Items/Swing/Swing_0.png" id="3_vc78e"]
+[ext_resource type="Texture2D" uid="uid://btum1pcc7mg2o" path="res://Sprites/Items/Swing/Swing_1.png" id="4_oepik"]
+[ext_resource type="AudioStream" uid="uid://dyo8j27atriw2" path="res://Sounds/chair.mp3" id="5_vc78e"]
+[ext_resource type="AudioStream" uid="uid://cwcee0n5d2y4b" path="res://Sounds/slow_up.mp3" id="8_uwplp"]
+[ext_resource type="AudioStream" uid="uid://dasiv8da4f5da" path="res://Sounds/speed_up.mp3" id="9_bj7s2"]
+[ext_resource type="AudioStream" uid="uid://j8odnqw5dea6" path="res://Sounds/dark_dying.mp3" id="10_ifrhb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bki4j"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="Animation" id="Animation_esmd8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Swing:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Swing/Swing/Light:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Swing/Swing/Light/Light:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.701961)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Swing/Swing/Light/Shadow:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_slow:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio_speed:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vc78e"]
+resource_name = "swing"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"defeat"
+}, {
+"args": [],
+"method": &"win"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"swing_skew_animation_off"
+}, {
+"args": [],
+"method": &"swing_skew_animation"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Swing:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.211765, 0.211765, 0.211765, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Swing/Swing/Light:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Swing/Swing/Light/Light:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.701961)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Swing/Swing/Light/Shadow:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio_slow:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Audio_speed:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oepik"]
+_data = {
+&"RESET": SubResource("Animation_esmd8"),
+&"swing": SubResource("Animation_vc78e")
+}
+
+[sub_resource type="Animation" id="Animation_xjwbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Swing/Swing/Swing_idle:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oepik"]
+resource_name = "swing_skew"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Swing/Swing/Swing_idle:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0872665, -0.0872665, 0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjwbo"]
+_data = {
+&"RESET": SubResource("Animation_xjwbo"),
+&"swing_skew": SubResource("Animation_oepik")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vc78e"]
+radius = 40.0125
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vc78e"]
+radius = 23.0
+height = 75.9999
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vc78e"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oepik"]
+polygon = PackedVector2Array(-10.7525, -0.618652, -13.2921, -8.20486, -13.3043, -17.6917, -5.08724, -21.497, -1.91685, -15.1765, 0.94422, -3.47972, 2.85295, 5.37222, 2.54768, 13.9108, 6.03552, 21.1795, 15.5264, 24.3296, 24.6958, 23.3692, 30.6988, 19.2505, 33.5396, 15.1359, 34.1501, -1.9412, 29.71, -12.0548, 25.5954, -14.8956, 29.0751, -13.9514, 36.6775, -3.84181, 36.0589, 6.91074, 35.1228, 16.715, 31.0285, 29.6856, 31.9848, 35.6927, 42.424, 38.5254, 50.0102, 35.9858, 51.9027, 32.1886, 51.8946, 25.8641, 50.3074, 21.1227, 52.8266, 12.8975, 56.9331, 9.41377, 55.3459, 4.67238, 52.493, -0.699831, 49.9493, -11.4483, 46.4696, -12.3925, 42.3509, -18.3956, 25.5751, -30.7069, 0.586185, -36.0507, -8.58319, -35.0903, -17.4351, -33.1816, -26.9057, -20.5203, -28.4727, -9.45029, -28.4605, 0.0365334, -19.9097, 9.82862, -11.6684, 24.997, -6.59735, 33.8449, 3.20287, 31.6187, 8.57102, 25.6035, 8.88441, 23.3895, -3.15415, 6.32861, -10.1177, 1.2779)
+
+[node name="Swing" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_esmd8")
+speed_animation = 1.5
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(122, 15)
+scale = Vector2(11.6953, 4.84375)
+texture = ExtResource("1_xjwbo")
+
+[node name="Swing" type="Node2D" parent="."]
+modulate = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Swing" type="Sprite2D" parent="Swing"]
+unique_name_in_owner = true
+position = Vector2(0, -27)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_vc78e")
+
+[node name="Swing_idle" type="Sprite2D" parent="Swing/Swing"]
+texture = ExtResource("4_oepik")
+
+[node name="Light" type="Node2D" parent="Swing/Swing"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(13.3333, 26.6667)
+
+[node name="Light" type="PointLight2D" parent="Swing/Swing/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(4.91666, 0.513489)
+rotation = -3.14159
+scale = Vector2(0.2, 0.2)
+color = Color(1, 1, 1, 0.701961)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_bki4j")
+
+[node name="Shadow" type="PointLight2D" parent="Swing/Swing/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(4.91666, 0.513489)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_bki4j")
+
+[node name="Animation_item" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_oepik")
+}
+
+[node name="Animation_swing" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_xjwbo")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -20)
+shape = SubResource("CircleShape2D_vc78e")
+debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_vc78e")
+volume_db = 8.0
+max_distance = 1500.0
+
+[node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_uwplp")
+volume_db = 24.0
+max_distance = 1500.0
+
+[node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_bj7s2")
+volume_db = 24.0
+max_distance = 1500.0
+
+[node name="Audio_die" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_ifrhb")
+volume_db = 10.0
+max_distance = 1500.0
+
+[node name="Static" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static"]
+position = Vector2(2, -6)
+rotation = -1.18627
+shape = SubResource("CapsuleShape2D_vc78e")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+material = SubResource("CanvasItemMaterial_vc78e")
+position = Vector2(-12, -27)
+rotation = 0.323034
+occluder = SubResource("OccluderPolygon2D_oepik")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

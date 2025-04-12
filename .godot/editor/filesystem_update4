@@ -1,0 +1,10 @@
+res://Scene/Menu/main_menu.tscn
+res://Shaders/Blur.gdshader
+res://Scene/World/world.tscn
+res://Scene/Player/player.tscn
+res://Scene/Item/Bonefire/bonefire.tscn
+res://Scene/Monster/monster.tscn
+res://Scene/Item/Fireplace/fireplace.tscn
+res://Scene/House/house_inerier.tscn
+res://Scene/Player/player.gd
+res://Scene/World/world.gd

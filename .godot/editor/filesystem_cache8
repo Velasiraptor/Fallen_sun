@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1726766293
+icon.svg::CompressedTexture2D::6952009199320899027::1720636421::1720636427::1::::<><>::
+music.mp3::AudioStreamMP3::8274939017712911152::1720638792::1720638831::1::::<><>::
+::res://Scene/::1720636565
+::res://Scene/Menu/::1722537167
+main_menu.tscn::PackedScene::460583337178178120::1722537167::0::1::::<><>::uid://cy0jo058egtuc::::res://Scene/Menu/setting.tscn
+setting.gd::GDScript::-1::1720640766::0::1::::<>Control<>::
+setting.tscn::PackedScene::6509555873532899334::1722537112::0::1::::<><>::res://Scene/Menu/setting.gd<>uid://dp5pbimaxs0y3::::res://music.mp3
+::res://Starter_Godot_4.2/::1720724595
