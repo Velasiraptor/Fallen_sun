@@ -36,11 +36,11 @@ func _physics_process(delta):
 		velocity = position.direction_to(target) * speed
 		#look_at(target)
 		if position.distance_to(target) > 30:
+			collision_monster.disabled = false
 			move_and_slide()
 
 
-func monster_start(start_position):
-	position = start_position
+func monster_start():
 	monster_on = true
 	audio_move.play()
 

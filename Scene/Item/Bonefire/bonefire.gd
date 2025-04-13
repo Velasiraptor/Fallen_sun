@@ -12,6 +12,8 @@ extends Area2D
 
 var item_win := false
 var item_eat_monster := false
+var item = "Bonefire"
+
 
 func _ready():
 	animation_item.speed_scale = speed_animation # Присваиваем скорость анимации
@@ -20,7 +22,11 @@ func _ready():
 func _on_body_entered(body): # Для монстра
 	if body.has_method("monster") and item_win:
 		item_eat_monster = true
-		animation_item.play_backwards("life") 
+		animation_item.play_backwards("life")
+		if item in Globals.count_win_item:
+			Globals.count_win_item.erase(item)
+		else:
+			pass
 		audio_speed.stop()
 		audio_slow.play()
 		await get_tree().create_timer(0.2).timeout
@@ -42,10 +48,26 @@ func _on_area_exited(area):
 		animation_item.play_backwards("life")
 		audio_speed.stop()
 		audio_slow.play()
+		if item in Globals.count_win_item:
+			Globals.count_win_item.erase(item)
+		else:
+			pass
 
 
 func win():
 	item_win = true
+	if item in Globals.count_win_item:
+		pass
+	else:
+		Globals.count_win_item.append(item)
+	
+	if Globals.count_win_item.size() >= Globals.count_victory:
+		pass # Монстр выходит в центр
+	else:
+		Globals.step_to_monster -= 1
+		if Globals.step_to_monster <= 0:
+			Globals.step_to_monster = randi_range(2, 3)
+			get_tree().call_group("World", "spawn_monster_active")
 
 
 func defeat():

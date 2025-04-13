@@ -36,8 +36,9 @@ size = Vector2(1946, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k48dw"]
 size = Vector2(552, 25)
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["World"]]
 script = ExtResource("1_lgevv")
+new_monster = ExtResource("3_bhlvr")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -149,9 +150,6 @@ color = Color(0.0862745, 0, 0.647059, 1)
 
 [node name="Monsters" type="Node2D" parent="."]
 unique_name_in_owner = true
-
-[node name="Monster" parent="Monsters" instance=ExtResource("3_bhlvr")]
-position = Vector2(-287, 338)
 
 [node name="Spawners_monster" type="Node2D" parent="."]
 unique_name_in_owner = true

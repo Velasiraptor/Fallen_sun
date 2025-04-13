@@ -174,6 +174,7 @@ frame_progress = 0.0544861
 [node name="Collision_monster" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_g35ut")
+disabled = true
 
 [node name="Light" type="Node2D" parent="."]
 unique_name_in_owner = true
