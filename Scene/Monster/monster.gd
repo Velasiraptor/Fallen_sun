@@ -35,7 +35,7 @@ func _physics_process(delta):
 	if monster_on:
 		velocity = position.direction_to(target) * speed
 		#look_at(target)
-		if position.distance_to(target) > 30:
+		if position.distance_to(target) > 5:
 			collision_monster.disabled = false
 			move_and_slide()
 
@@ -61,10 +61,17 @@ func _on_area_die_area_exited(area):
 	animation_shake.play_backwards("die")
 
 
+func _on_area_die_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		body.player_defeat() # Функция внутри игрока
+		die()
+
+
 func zero_speed():
 	speed = 0
 func max_speed():
 	speed = save_speed
+
 
 func die(): # Смерть
 	queue_free()

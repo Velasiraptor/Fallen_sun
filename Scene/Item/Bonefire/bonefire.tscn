@@ -283,28 +283,28 @@ debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_fsais")
+volume_db = -5.0
 max_distance = 1500.0
 
 [node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("12_ia1rx")
-volume_db = 24.0
+volume_db = 15.0
 max_distance = 1500.0
 
 [node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("13_w04fn")
-volume_db = 24.0
+volume_db = 15.0
 max_distance = 1500.0
 
 [node name="Audio_die" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_w04fn")
-volume_db = 10.0
 max_distance = 1500.0
 
 [node name="Static" type="StaticBody2D" parent="."]
-collision_layer = 4
+collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static"]

@@ -38,14 +38,14 @@ func _on_body_entered(body): # Для монстра
 
 
 func _on_area_entered(area): # Для игрока
-	if not item_win and not item_eat_monster:
+	if not item_win and not item_eat_monster and not area.get_parent().has_method("monster"):
 		animation_item.play("swing")
 		audio_slow.stop()
 		audio_speed.play()
 
 
 func _on_area_exited(area):
-	if not item_win and not item_eat_monster and animation_item.is_playing():
+	if not item_win and not item_eat_monster and animation_item.is_playing() and not area.get_parent().has_method("monster"):
 		animation_item.play_backwards("swing")
 		if item in Globals.count_win_item:
 			Globals.count_win_item.erase(item)
@@ -64,11 +64,7 @@ func win():
 	
 	if Globals.count_win_item.size() >= Globals.count_victory:
 		pass # Монстр выходит в центр
-	else:
-		Globals.step_to_monster -= 1
-		if Globals.step_to_monster <= 0:
-			Globals.step_to_monster = randi_range(2, 3)
-			get_tree().call_group("World", "spawn_monster_active")
+		# Таймер монстра останавливается
 
 
 func defeat():

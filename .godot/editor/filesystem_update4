@@ -15,3 +15,4 @@ res://Scene/Item/Fireplace/fireplace.tscn
 res://Scene/House/house_inerier.tscn
 res://Scene/World/world.gd
 res://Scene/Monster/monster.gd
+res://Scene/Player/player.gd

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0v1ql23gksre"]
+[gd_scene load_steps=20 format=3 uid="uid://c0v1ql23gksre"]
 
 [ext_resource type="PackedScene" uid="uid://cntqfikkwaucf" path="res://Scene/Item/Bonefire/bonefire.tscn" id="1_bhlvr"]
 [ext_resource type="Texture2D" uid="uid://bf8cgvdrnos3a" path="res://Sprites/World/Sky.png" id="1_cq2im"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dl526d7wsewly" path="res://Scene/Item/trees/tree_1.tscn" id="11_su0op"]
 [ext_resource type="PackedScene" uid="uid://xdlwxpk7n6yc" path="res://Scene/Item/Woody/woody.tscn" id="12_1uwtg"]
 [ext_resource type="PackedScene" uid="uid://fa1hfho37hfk" path="res://Scene/Item/Swing/swing.tscn" id="13_rdfd6"]
+[ext_resource type="Script" uid="uid://c044b8yk1u4ep" path="res://addons/random_timer/random_timer.gd" id="15_w5po0"]
 
 [sub_resource type="Shader" id="Shader_jtoul"]
 code = "shader_type canvas_item;
@@ -121,6 +122,7 @@ y_sort_enabled = true
 position = Vector2(524, 609)
 
 [node name="Player" parent="Gameplay_objects" instance=ExtResource("2_r1x3d")]
+unique_name_in_owner = true
 position = Vector2(615, 974)
 
 [node name="Tree_2" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
@@ -255,3 +257,13 @@ position = Vector2(-131, 674)
 
 [node name="Marker34" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(-131, 574)
+
+[node name="RandomTimer_spawn" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("15_w5po0")
+min_wait_time = 6.0
+max_wait_time = 7.0
+metadata/_custom_type_script = "uid://c044b8yk1u4ep"
+
+[connection signal="timeout" from="RandomTimer_spawn" to="." method="_on_random_timer_spawn_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdtvwbmx1trc5"]
+[gd_scene load_steps=17 format=3 uid="uid://bdtvwbmx1trc5"]
 
 [ext_resource type="Script" uid="uid://cqr2dwjbhu8q5" path="res://Scene/Monster/monster.gd" id="1_klg5d"]
 [ext_resource type="Texture2D" uid="uid://djoi5w5gv6ltr" path="res://Sprites/Monster/Monster_1.png" id="2_02626"]
@@ -32,14 +32,17 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g35ut"]
-radius = 68.884
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8efm"]
+radius = 38.0132
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_klg5d"]
 load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oqa3l"]
 load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g35ut"]
+radius = 73.0616
 
 [sub_resource type="Animation" id="Animation_20rlx"]
 length = 0.001
@@ -159,7 +162,7 @@ _data = {
 
 [node name="Monster" type="CharacterBody2D" groups=["Monster"]]
 collision_layer = 8
-collision_mask = 6
+collision_mask = 22
 script = ExtResource("1_klg5d")
 
 [node name="Monster_sprite" type="AnimatedSprite2D" parent="."]
@@ -173,7 +176,7 @@ frame_progress = 0.0544861
 
 [node name="Collision_monster" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-shape = SubResource("CircleShape2D_g35ut")
+shape = SubResource("CircleShape2D_a8efm")
 disabled = true
 
 [node name="Light" type="Node2D" parent="."]
@@ -205,9 +208,9 @@ texture = SubResource("CompressedTexture2D_oqa3l")
 [node name="Area_die" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 8
-collision_mask = 2
+collision_mask = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_die"]
+[node name="Collision_area" type="CollisionShape2D" parent="Area_die"]
 shape = SubResource("CircleShape2D_g35ut")
 
 [node name="Animation_Shake" type="AnimationPlayer" parent="."]
@@ -219,7 +222,6 @@ libraries = {
 [node name="Audio_die" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_20rlx")
-volume_db = 10.0
 max_distance = 1500.0
 
 [node name="Audio_move" type="AudioStreamPlayer2D" parent="."]
@@ -230,3 +232,4 @@ max_distance = 1500.0
 
 [connection signal="area_entered" from="Area_die" to="." method="_on_area_die_area_entered"]
 [connection signal="area_exited" from="Area_die" to="." method="_on_area_die_area_exited"]
+[connection signal="body_entered" from="Area_die" to="." method="_on_area_die_body_entered"]

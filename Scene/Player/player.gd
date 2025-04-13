@@ -7,12 +7,14 @@ extends CharacterBody2D
 @onready var light_ray = %Light_Ray
 @onready var area_light = %Area_light
 @onready var audio_step = %Audio_step
+@onready var animation_die: AnimationPlayer = %Animation_die
 
 
 var light_big_position: Vector2
 var light_ray_position: Vector2
 var area_light_position: Vector2
 
+var player_die := false
 
 func _ready():
 	light_big_position = light_big.position
@@ -21,9 +23,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	get_input()
-	animation_player()
-	move_and_slide()
+	if not player_die:
+		get_input()
+		animation_player()
+		move_and_slide()
 
 
 func get_input():
@@ -52,3 +55,11 @@ func animation_player():
 
 func player():
 	pass
+
+
+func player_defeat():
+	Globals.fall = true
+	get_tree().call_group("World", "monster_in_world_off")
+	player_die = true
+	rabbit.play("idle")
+	animation_die.play("die")
