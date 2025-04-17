@@ -20,13 +20,10 @@ func _ready():
 
 
 func _on_body_entered(body): # Для монстра
-	if body.has_method("monster") and item_win:
+	if body.has_method("monster") and item_win and Globals.count_win_item.size() < Globals.count_victory:
 		item_eat_monster = true
 		animation_item.play_backwards("life")
-		if item in Globals.count_win_item:
-			Globals.count_win_item.erase(item)
-		else:
-			pass
+		Globals.count_win_item.erase(item)
 		audio_speed.stop()
 		audio_slow.play()
 		await get_tree().create_timer(0.2).timeout
@@ -63,7 +60,7 @@ func win():
 	
 	if Globals.count_win_item.size() >= Globals.count_victory:
 		pass # Монстр выходит в центр
-		# Таймер монстра останавливается
+		get_tree().call_group("World", "timer_stop")
 
 
 func defeat():

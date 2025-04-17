@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var area_light = %Area_light
 @onready var audio_step = %Audio_step
 @onready var animation_die: AnimationPlayer = %Animation_die
+@onready var animation_idle = %Animation_idle
 
 
 var light_big_position: Vector2
@@ -49,8 +50,10 @@ func animation_player():
 		area_light.position.x = area_light_position.x
 	if velocity == Vector2(0,0):
 		rabbit.play("idle")
+		animation_idle.play("idle")
 	else:
 		rabbit.play("walk")
+		animation_idle.stop()
 
 
 func player():
@@ -58,8 +61,19 @@ func player():
 
 
 func player_defeat():
+	animation_idle.stop()
 	Globals.fall = true
 	get_tree().call_group("World", "monster_in_world_off")
+	get_tree().call_group("World", "camera_die")
 	player_die = true
 	rabbit.play("idle")
 	animation_die.play("die")
+
+
+func move_player_off():
+	player_die = true
+
+
+func back_MM():
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://Scene/Menu/main_menu.tscn")

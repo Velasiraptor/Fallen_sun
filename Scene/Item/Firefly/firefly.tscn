@@ -1,0 +1,392 @@
+[gd_scene load_steps=16 format=3 uid="uid://q017s56m7u2o"]
+
+[ext_resource type="Script" uid="uid://b4o6i0to5y2vl" path="res://Scene/Item/Firefly/firefly.gd" id="1_xlnj4"]
+[ext_resource type="Texture2D" uid="uid://bt26jios5b0sf" path="res://Sprites/Items/Firefly/firefly.png" id="3_x0jxc"]
+[ext_resource type="AudioStream" uid="uid://bmb6kt8018r78" path="res://Sounds/firefly.mp3" id="4_x0jxc"]
+[ext_resource type="AudioStream" uid="uid://cwcee0n5d2y4b" path="res://Sounds/slow_up.mp3" id="9_hbm4y"]
+[ext_resource type="AudioStream" uid="uid://dasiv8da4f5da" path="res://Sounds/speed_up.mp3" id="10_win3o"]
+[ext_resource type="AudioStream" uid="uid://j8odnqw5dea6" path="res://Sounds/dark_dying.mp3" id="11_lk4po"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iv754"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x0jxc"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="Animation" id="Animation_w5q63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Firefly:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Firefly/Light/Light:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Firefly/Light/Shadow:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_x0jxc"]
+resource_name = "firefly"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"defeat"
+}, {
+"args": [],
+"method": &"win"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"animation_firefly_off"
+}, {
+"args": [],
+"method": &"animation_firefly"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Firefly:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.703807, 0.703808, 0.703808, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Firefly/Light/Light:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.529412)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Firefly/Light/Shadow:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.529412)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjbcd"]
+_data = {
+&"RESET": SubResource("Animation_w5q63"),
+&"firefly": SubResource("Animation_x0jxc")
+}
+
+[sub_resource type="Animation" id="Animation_xjbcd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Firefly/Firefly:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-17, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Firefly/Firefly2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, -16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Firefly/Firefly3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Firefly:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Firefly:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3v8v3"]
+resource_name = "firefly"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Firefly/Firefly:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-17, 6), Vector2(-17, -4), Vector2(-17, 6), Vector2(-17, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Firefly/Firefly2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(9, -16), Vector2(9, -6), Vector2(9, -16), Vector2(9, -6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Firefly/Firefly3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 14), Vector2(-3, 9), Vector2(3, 14), Vector2(-3, 9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Firefly:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, -2), Vector2(-4, -7), Vector2(5, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Firefly:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5q63"]
+_data = {
+&"RESET": SubResource("Animation_xjbcd"),
+&"firefly": SubResource("Animation_3v8v3")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uiujq"]
+radius = 16.0312
+
+[node name="Firefly" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_xlnj4")
+speed_animation = 0.8
+
+[node name="Firefly" type="Node2D" parent="."]
+modulate = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Firefly" type="Sprite2D" parent="Firefly"]
+position = Vector2(-17, 6)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_x0jxc")
+
+[node name="Firefly2" type="Sprite2D" parent="Firefly"]
+position = Vector2(9, -16)
+rotation = 0.262794
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_x0jxc")
+
+[node name="Firefly3" type="Sprite2D" parent="Firefly"]
+position = Vector2(3, 14)
+rotation = 0.315529
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_x0jxc")
+
+[node name="Light" type="Node2D" parent="Firefly"]
+position = Vector2(0, -27)
+scale = Vector2(0.3, 0.3)
+
+[node name="Light" type="PointLight2D" parent="Firefly/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-8.93195, 89.1594)
+rotation = -3.14159
+scale = Vector2(0.15, 0.15)
+color = Color(1, 1, 1, 0)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_iv754")
+
+[node name="Shadow" type="PointLight2D" parent="Firefly/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-8.93189, 89.1594)
+rotation = 3.14159
+scale = Vector2(0.15, 0.15)
+color = Color(1, 1, 1, 0)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_x0jxc")
+
+[node name="Animation_item" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_xjbcd")
+}
+
+[node name="Firefly_animation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_w5q63")
+}
+speed_scale = 0.16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_uiujq")
+debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_x0jxc")
+volume_db = -10.0
+max_distance = 1500.0
+
+[node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_hbm4y")
+volume_db = 5.0
+max_distance = 1500.0
+
+[node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_win3o")
+volume_db = 5.0
+max_distance = 1500.0
+
+[node name="Audio_die" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_lk4po")
+max_distance = 1500.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fallen sun"
-run/main_scene="uid://c0v1ql23gksre"
+run/main_scene="uid://gtd0f0veowgu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ Globals="*res://Globals/Globals.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
@@ -30,6 +31,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/random_timer/plugin.cfg")
+
+[global_group]
+
+item_in_home=""
 
 [input]
 

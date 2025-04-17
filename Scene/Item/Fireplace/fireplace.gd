@@ -39,13 +39,14 @@ func _on_area_exited(area):
 func win():
 	item_win = true
 	if item in Globals.count_win_item:
-		Globals.count_win_item.erase(item)
-	else:
 		pass
+	else:
+		Globals.count_win_item.append(item)
+		get_tree().call_group("World", "music")
 	
 	if Globals.count_win_item.size() >= Globals.count_victory:
 		pass # Монстр выходит в центр
-		# Таймер монстра останавливается
+		get_tree().call_group("World", "timer_stop")
 
 
 func defeat():

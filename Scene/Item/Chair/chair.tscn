@@ -1,0 +1,228 @@
+[gd_scene load_steps=14 format=3 uid="uid://cutvrayql5u4f"]
+
+[ext_resource type="Script" uid="uid://bgj8al2u247fd" path="res://Scene/Item/Chair/chair.gd" id="1_wse4u"]
+[ext_resource type="Texture2D" uid="uid://gyto2qxeyxqf" path="res://Sprites/Items/Chair/Chair.png" id="2_rrep4"]
+[ext_resource type="AudioStream" uid="uid://cwcee0n5d2y4b" path="res://Sounds/slow_up.mp3" id="10_hiua5"]
+[ext_resource type="AudioStream" uid="uid://dyo8j27atriw2" path="res://Sounds/chair.mp3" id="10_wse4u"]
+[ext_resource type="AudioStream" uid="uid://dasiv8da4f5da" path="res://Sounds/speed_up.mp3" id="11_1qnv7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrep4"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="Animation" id="Animation_7opy0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chair:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chair/Chair/Light/Light:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chair/Chair/Light/Shadow:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p14ia"]
+resource_name = "life"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"win"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chair:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chair/Chair/Light/Light:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chair/Chair/Light/Shadow:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rrep4"]
+_data = {
+&"RESET": SubResource("Animation_7opy0"),
+&"life": SubResource("Animation_p14ia")
+}
+
+[sub_resource type="Animation" id="Animation_nqpvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chair/Chair:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rrep4"]
+resource_name = "rotation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chair/Chair:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqpvx"]
+_data = {
+&"RESET": SubResource("Animation_nqpvx"),
+&"rotation": SubResource("Animation_rrep4")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_37v8m"]
+radius = 49.0918
+
+[node name="Chair" type="Area2D" groups=["item_in_home"]]
+collision_layer = 4
+collision_mask = 10
+monitoring = false
+monitorable = false
+script = ExtResource("1_wse4u")
+speed_animation = 1.5
+
+[node name="Chair" type="Node2D" parent="."]
+modulate = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Chair" type="Sprite2D" parent="Chair"]
+unique_name_in_owner = true
+position = Vector2(-4, -49)
+texture = ExtResource("2_rrep4")
+
+[node name="Light" type="Node2D" parent="Chair/Chair"]
+
+[node name="Light" type="PointLight2D" parent="Chair/Chair/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(3.05026, 8.05026)
+rotation = -3.14159
+scale = Vector2(0.1, 0.1)
+color = Color(1, 1, 1, 0)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_rrep4")
+
+[node name="Shadow" type="PointLight2D" parent="Chair/Chair/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(3.05566, 8.05026)
+rotation = 3.14159
+scale = Vector2(0.1, 0.1)
+color = Color(1, 1, 1, 0)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_rrep4")
+
+[node name="Animation_item" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_rrep4")
+}
+
+[node name="Animation_chair" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_nqpvx")
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -140)
+shape = SubResource("CircleShape2D_37v8m")
+debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_wse4u")
+volume_db = -15.0
+max_distance = 1500.0
+
+[node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_hiua5")
+volume_db = 15.0
+max_distance = 1500.0
+
+[node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_1qnv7")
+volume_db = 15.0
+max_distance = 1500.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

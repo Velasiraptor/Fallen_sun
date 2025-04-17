@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0v1ql23gksre"]
+[gd_scene load_steps=32 format=3 uid="uid://c0v1ql23gksre"]
 
 [ext_resource type="PackedScene" uid="uid://cntqfikkwaucf" path="res://Scene/Item/Bonefire/bonefire.tscn" id="1_bhlvr"]
 [ext_resource type="Texture2D" uid="uid://bf8cgvdrnos3a" path="res://Sprites/World/Sky.png" id="1_cq2im"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://no8t08ycrs8t" path="res://Sprites/World/Backgroud.png" id="2_1m7mk"]
 [ext_resource type="PackedScene" uid="uid://bvqr8biyyos56" path="res://Scene/Player/player.tscn" id="2_r1x3d"]
 [ext_resource type="PackedScene" uid="uid://bdtvwbmx1trc5" path="res://Scene/Monster/monster.tscn" id="3_bhlvr"]
+[ext_resource type="Texture2D" uid="uid://moy5oilk5ms4" path="res://Слой_1 2.png" id="3_ktabj"]
 [ext_resource type="Texture2D" uid="uid://c6buttvxymgb0" path="res://icon.svg" id="4_5qqpy"]
+[ext_resource type="FontFile" uid="uid://c0isjn8bttcn2" path="res://Sprites/NEW/antikvarika.ttf" id="4_icour"]
 [ext_resource type="Texture2D" uid="uid://b2bhbtluwk1gt" path="res://Sprites/World/World.png" id="5_5qqpy"]
 [ext_resource type="Texture2D" uid="uid://cwrlaxcq2pqg7" path="res://Sprites/Items/Tree_2.png" id="7_1uwtg"]
 [ext_resource type="PackedScene" uid="uid://bybxmub7542mv" path="res://Scene/House/house_inerier.tscn" id="8_su0op"]
@@ -14,7 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://dl526d7wsewly" path="res://Scene/Item/trees/tree_1.tscn" id="11_su0op"]
 [ext_resource type="PackedScene" uid="uid://xdlwxpk7n6yc" path="res://Scene/Item/Woody/woody.tscn" id="12_1uwtg"]
 [ext_resource type="PackedScene" uid="uid://fa1hfho37hfk" path="res://Scene/Item/Swing/swing.tscn" id="13_rdfd6"]
+[ext_resource type="PackedScene" uid="uid://q017s56m7u2o" path="res://Scene/Item/Firefly/firefly.tscn" id="15_t2odv"]
 [ext_resource type="Script" uid="uid://c044b8yk1u4ep" path="res://addons/random_timer/random_timer.gd" id="15_w5po0"]
+[ext_resource type="PackedScene" uid="uid://v418kovlrtgf" path="res://Scene/Item/Water_item/water_item.tscn" id="16_xunto"]
+[ext_resource type="PackedScene" uid="uid://d4jonyo7smum2" path="res://Scene/Item/Sunflower/sunflower.tscn" id="17_12pi2"]
+[ext_resource type="PackedScene" uid="uid://5htnm8w3v6eu" path="res://Scene/Item/Flower/flower.tscn" id="18_0lgg3"]
+[ext_resource type="Texture2D" uid="uid://ocsuj3pc2810" path="res://Sprites/Monster_end/Monster_end_8.png" id="19_epclv"]
+[ext_resource type="AudioStream" uid="uid://boke7iux6mpgj" path="res://Сказочная добрая 1 дождь.mp3" id="21_cgqo1"]
+[ext_resource type="PackedScene" uid="uid://chk7yweuf3gfk" path="res://Scene/Item/trees/tree_gr.tscn" id="21_qu40e"]
 
 [sub_resource type="Shader" id="Shader_jtoul"]
 code = "shader_type canvas_item;
@@ -37,9 +46,230 @@ size = Vector2(1946, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k48dw"]
 size = Vector2(552, 25)
 
+[sub_resource type="Animation" id="Animation_epclv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monsters:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker_the_end/Sun:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker_the_end/Sun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker_the_end/Sun:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker_the_end/Sun:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background/Nihgt_mode:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0, 0.905882, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Nihgt_mode:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.138445, 0, 0.906316, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0lgg3"]
+resource_name = "end_game"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monsters:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker_the_end/Sun:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker_the_end/Sun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(942, -711)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker_the_end/Sun:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.4, 0.4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker_the_end/Sun:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background/Nihgt_mode:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0, 0.905882, 1), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Nihgt_mode:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.138445, 0, 0.906316, 1), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"back_MM"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epclv"]
+_data = {
+&"RESET": SubResource("Animation_epclv"),
+&"end_game": SubResource("Animation_0lgg3")
+}
+
 [node name="World" type="Node2D" groups=["World"]]
 script = ExtResource("1_lgevv")
 new_monster = ExtResource("3_bhlvr")
+
+[node name="Instr" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Слой12" type="Sprite2D" parent="Instr"]
+position = Vector2(931, 576)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ktabj")
+
+[node name="Label" type="Label" parent="Instr/Слой12"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1897.83
+offset_top = -1455.67
+offset_right = -283.833
+offset_bottom = -1284.67
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_icour")
+theme_override_font_sizes/font_size = 75
+text = "НАЖМИ НА ПРОБЕЛ, ЧТОБЫ ЗАКРЫТЬ
+"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -48,8 +278,6 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_cq2im")
@@ -64,14 +292,14 @@ scale = Vector2(9.96875, 4.77344)
 texture = ExtResource("4_5qqpy")
 
 [node name="Nihgt_mode" type="CanvasModulate" parent="Background"]
-color = Color(0.0856988, 0, 0.648053, 1)
+color = Color(0.137255, 0, 0.905882, 1)
 
 [node name="Background2" type="Sprite2D" parent="."]
 position = Vector2(963, 540)
 texture = ExtResource("2_1m7mk")
 
 [node name="World" type="Sprite2D" parent="."]
-position = Vector2(963, 539)
+position = Vector2(960, 539)
 texture = ExtResource("5_5qqpy")
 
 [node name="Tree1" type="Sprite2D" parent="."]
@@ -112,8 +340,13 @@ polygon = PackedVector2Array(1919, 672, 1865, 664, 1825, 649, 1812, 634, 1813, 6
 position = Vector2(961, 1092)
 shape = SubResource("RectangleShape2D_5qqpy")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(963, 539)
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
 
 [node name="Gameplay_objects" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -123,17 +356,11 @@ position = Vector2(524, 609)
 
 [node name="Player" parent="Gameplay_objects" instance=ExtResource("2_r1x3d")]
 unique_name_in_owner = true
-position = Vector2(615, 974)
-
-[node name="Tree_2" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
-position = Vector2(1138, 936)
-
-[node name="Tree_3" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
-position = Vector2(1284, 876)
-scale = Vector2(-1, 1)
+position = Vector2(755, 921)
 
 [node name="Items" type="Node2D" parent="Gameplay_objects"]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="Bonefire" parent="Gameplay_objects/Items" instance=ExtResource("1_bhlvr")]
 position = Vector2(1070, 923)
@@ -144,11 +371,46 @@ position = Vector2(749, 432)
 scale = Vector2(-1, 1)
 
 [node name="Swing" parent="Gameplay_objects/Items" instance=ExtResource("13_rdfd6")]
-position = Vector2(375, 1003)
+position = Vector2(1208, 612)
 scale = Vector2(1.5, 1.5)
 
+[node name="Firefly" parent="Gameplay_objects/Items" instance=ExtResource("15_t2odv")]
+position = Vector2(361, 976)
+
+[node name="Water_item" parent="Gameplay_objects/Items" instance=ExtResource("16_xunto")]
+position = Vector2(1621, 829)
+
+[node name="Sunflower" parent="Gameplay_objects/Items" instance=ExtResource("17_12pi2")]
+position = Vector2(1366, 821)
+
+[node name="Flower" parent="Gameplay_objects/Items" instance=ExtResource("18_0lgg3")]
+position = Vector2(815, 759)
+
+[node name="Tree_2" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
+position = Vector2(1138, 936)
+
+[node name="Tree_4" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
+position = Vector2(165, 649)
+
+[node name="Tree_5" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
+position = Vector2(414, 1022)
+
+[node name="Tree_6" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
+position = Vector2(922, 649)
+scale = Vector2(-1, 1)
+
+[node name="Tree_7" parent="Gameplay_objects" instance=ExtResource("11_su0op")]
+position = Vector2(1422, 614)
+
+[node name="Tree_GR" parent="Gameplay_objects" instance=ExtResource("21_qu40e")]
+position = Vector2(226, 821)
+
+[node name="Tree_GR2" parent="Gameplay_objects" instance=ExtResource("21_qu40e")]
+position = Vector2(1466, 850)
+scale = Vector2(-1, 1)
+
 [node name="Nihgt_mode" type="CanvasModulate" parent="."]
-color = Color(0.0862745, 0, 0.647059, 1)
+color = Color(0.138445, 0, 0.906316, 1)
 
 [node name="Monsters" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -156,114 +418,58 @@ unique_name_in_owner = true
 [node name="Spawners_monster" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Marker" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(2009, 574)
-
-[node name="Marker2" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(2009, 674)
-
-[node name="Marker3" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(2009, 774)
-
-[node name="Marker4" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(2009, 874)
-
-[node name="Marker5" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(2009, 974)
-
-[node name="Marker6" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(2009, 1074)
-
-[node name="Marker7" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(2009, 1204)
-
-[node name="Marker8" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1909, 1204)
-
-[node name="Marker9" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1809, 1204)
-
-[node name="Marker10" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1709, 1204)
-
-[node name="Marker11" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1609, 1204)
-
-[node name="Marker12" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1509, 1204)
-
-[node name="Marker13" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1409, 1204)
-
-[node name="Marker14" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1309, 1204)
-
-[node name="Marker15" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1209, 1204)
-
-[node name="Marker16" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1109, 1204)
-
-[node name="Marker17" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(1009, 1204)
-
-[node name="Marker18" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(909, 1204)
-
 [node name="Marker19" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(809, 1204)
-
-[node name="Marker20" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(709, 1204)
 
 [node name="Marker21" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(609, 1204)
 
-[node name="Marker22" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(509, 1204)
-
 [node name="Marker23" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(409, 1204)
-
-[node name="Marker24" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(309, 1204)
 
 [node name="Marker25" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(209, 1204)
 
-[node name="Marker26" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(109, 1204)
-
 [node name="Marker27" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(9, 1204)
-
-[node name="Marker28" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(-131, 1204)
 
 [node name="Marker29" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(-131, 1074)
 
-[node name="Marker30" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(-131, 974)
-
 [node name="Marker31" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(-131, 874)
-
-[node name="Marker32" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(-131, 774)
 
 [node name="Marker33" type="Marker2D" parent="Spawners_monster"]
 position = Vector2(-131, 674)
 
-[node name="Marker34" type="Marker2D" parent="Spawners_monster"]
-position = Vector2(-131, 574)
+[node name="Marker_the_end" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(640, 910)
+
+[node name="Sun" type="Sprite2D" parent="Marker_the_end"]
+visible = false
+z_index = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_epclv")
 
 [node name="RandomTimer_spawn" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
 script = ExtResource("15_w5po0")
-min_wait_time = 6.0
-max_wait_time = 7.0
+min_wait_time = 15.0
+max_wait_time = 20.0
 metadata/_custom_type_script = "uid://c044b8yk1u4ep"
+
+[node name="Animation_End" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_epclv")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("21_cgqo1")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="timeout" from="RandomTimer_spawn" to="." method="_on_random_timer_spawn_timeout"]

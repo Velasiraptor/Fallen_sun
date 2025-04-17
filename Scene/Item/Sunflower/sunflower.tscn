@@ -1,0 +1,248 @@
+[gd_scene load_steps=16 format=3 uid="uid://d4jonyo7smum2"]
+
+[ext_resource type="Script" uid="uid://bo7veekla7jmt" path="res://Scene/Item/Sunflower/sunflower.gd" id="1_xrwmm"]
+[ext_resource type="Texture2D" uid="uid://bx131mybh5xb0" path="res://Sprites/Items/Sunflower/Sunflower_1.png" id="3_l8kxm"]
+[ext_resource type="Texture2D" uid="uid://cp2kcsf4f7gv6" path="res://Sprites/Items/Sunflower/Sunflower_2.png" id="4_w7irj"]
+[ext_resource type="Texture2D" uid="uid://bnog2nbpb8jlo" path="res://Sprites/Items/Sunflower/Sunflower_3.png" id="5_nv3nk"]
+[ext_resource type="AudioStream" uid="uid://cwcee0n5d2y4b" path="res://Sounds/slow_up.mp3" id="5_w7irj"]
+[ext_resource type="AudioStream" uid="uid://dasiv8da4f5da" path="res://Sounds/speed_up.mp3" id="6_nv3nk"]
+[ext_resource type="AudioStream" uid="uid://j8odnqw5dea6" path="res://Sounds/dark_dying.mp3" id="7_obane"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gymr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l8kxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w7irj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nv3nk")
+}],
+"loop": false,
+"name": &"flower",
+"speed": 0.6
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e4ujj"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_18lah"]
+load_path = "res://.godot/imported/light_2.png-d2c8f442ab563cba09d0fc1a925274d1.ctex"
+
+[sub_resource type="Animation" id="Animation_18lah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sunflower:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sunflower/Sunlower:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sunflower/Light/Light:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sunflower/Light/Shadow:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gymr0"]
+resource_name = "life"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"defeat"
+}, {
+"args": [],
+"method": &"win"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sunflower:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.169245, 0.169245, 0.169245, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sunflower/Sunlower:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sunflower/Light/Light:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sunflower/Light/Shadow:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e4ujj"]
+_data = {
+&"RESET": SubResource("Animation_18lah"),
+&"life": SubResource("Animation_gymr0")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8kxm"]
+radius = 23.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18lah"]
+radius = 8.0
+height = 24.0
+
+[node name="Sunflower" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_xrwmm")
+
+[node name="Sunflower" type="Node2D" parent="."]
+modulate = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Sunlower" type="AnimatedSprite2D" parent="Sunflower"]
+unique_name_in_owner = true
+position = Vector2(0, -40)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_gymr0")
+animation = &"flower"
+
+[node name="Light" type="Node2D" parent="Sunflower"]
+position = Vector2(0, -27)
+scale = Vector2(0.3, 0.3)
+
+[node name="Light" type="PointLight2D" parent="Sunflower/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-8.93195, -70.8406)
+rotation = -3.14159
+scale = Vector2(0.18, 0.25)
+color = Color(1, 1, 1, 0)
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_e4ujj")
+
+[node name="Shadow" type="PointLight2D" parent="Sunflower/Light"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(-8.93189, -70.8406)
+rotation = 3.14159
+scale = Vector2(0.18, 0.25)
+color = Color(1, 1, 1, 0)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.2
+texture = SubResource("CompressedTexture2D_18lah")
+
+[node name="Animation_item" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_e4ujj")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -33)
+shape = SubResource("CapsuleShape2D_l8kxm")
+debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
+
+[node name="Audio_slow" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_w7irj")
+volume_db = 5.0
+max_distance = 1500.0
+
+[node name="Audio_speed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_nv3nk")
+volume_db = 5.0
+max_distance = 1500.0
+
+[node name="Audio_die" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_obane")
+max_distance = 1500.0
+
+[node name="Static" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static"]
+position = Vector2(5, 9)
+rotation = -0.00720131
+shape = SubResource("CapsuleShape2D_18lah")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

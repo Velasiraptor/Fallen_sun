@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdtvwbmx1trc5"]
+[gd_scene load_steps=29 format=3 uid="uid://bdtvwbmx1trc5"]
 
 [ext_resource type="Script" uid="uid://cqr2dwjbhu8q5" path="res://Scene/Monster/monster.gd" id="1_klg5d"]
 [ext_resource type="Texture2D" uid="uid://djoi5w5gv6ltr" path="res://Sprites/Monster/Monster_1.png" id="2_02626"]
@@ -7,7 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://xnqr78hb8amd" path="res://Sprites/Monster/Monster_4.png" id="5_1pc2f"]
 [ext_resource type="Texture2D" uid="uid://7pi4hyqo5bpy" path="res://Sprites/Monster/Monster_5.png" id="6_hco2p"]
 [ext_resource type="AudioStream" uid="uid://j8odnqw5dea6" path="res://Sounds/dark_dying.mp3" id="7_20rlx"]
+[ext_resource type="Texture2D" uid="uid://cavemycsw5et1" path="res://Sprites/Monster_end/Monster_end_1.png" id="7_bs8p1"]
 [ext_resource type="AudioStream" uid="uid://d16uyewfxerer" path="res://Sounds/dark_moving.mp3" id="8_a8efm"]
+[ext_resource type="Texture2D" uid="uid://3kmw6agto387" path="res://Sprites/Monster_end/Monster_end_2.png" id="8_qfkgg"]
+[ext_resource type="Texture2D" uid="uid://dlw2oo56vh4og" path="res://Sprites/Monster_end/Monster_end_3.png" id="9_w8l62"]
+[ext_resource type="Texture2D" uid="uid://bv2o3iqotl2ef" path="res://Sprites/Monster_end/Monster_end_4.png" id="10_ctss8"]
+[ext_resource type="Texture2D" uid="uid://de417kvaspr8e" path="res://Sprites/Monster_end/Monster_end_5.png" id="11_m4ifg"]
+[ext_resource type="Texture2D" uid="uid://7ts3cxpy0ija" path="res://Sprites/Monster_end/Monster_end_6.png" id="12_cjfyd"]
+[ext_resource type="Texture2D" uid="uid://vd8fl2jbu0kq" path="res://Sprites/Monster_end/Monster_end_7.png" id="13_a2pm2"]
+[ext_resource type="Texture2D" uid="uid://ocsuj3pc2810" path="res://Sprites/Monster_end/Monster_end_8.png" id="14_nyndn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tlj3c"]
 animations = [{
@@ -30,6 +38,38 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snjob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_bs8p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qfkgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w8l62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ctss8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m4ifg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cjfyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a2pm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nyndn")
+}],
+"loop": false,
+"name": &"end",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8efm"]
@@ -160,6 +200,81 @@ _data = {
 &"die": SubResource("Animation_02626")
 }
 
+[sub_resource type="Animation" id="Animation_qfkgg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monster_end:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monster_end:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.242601]
+}
+
+[sub_resource type="Animation" id="Animation_bs8p1"]
+resource_name = "the_end_monster"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monster_end:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monster_end:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.39, 1.6, 1.8, 2, 2.19, 2.4, 2.6, 2.8, 2.99, 3.2, 3.4, 3.6, 3.79, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.242601, 0.0680678, 0.242601, 0.417134, 0.242601, 0.0680678, 0.242601, 0.417134, 0.242601, 0.0680678, 0.242601, 0.417134, 0.242601, 0.0680678, 0.242601, 0.417134, 0.242601, 0.0680678, 0.242601, 0.417134, 0.242601]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"the_end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfkgg"]
+_data = {
+&"RESET": SubResource("Animation_qfkgg"),
+&"the_end_monster": SubResource("Animation_bs8p1")
+}
+
 [node name="Monster" type="CharacterBody2D" groups=["Monster"]]
 collision_layer = 8
 collision_mask = 22
@@ -174,8 +289,17 @@ animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.0544861
 
+[node name="Monster_end" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+rotation = 0.242601
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_snjob")
+animation = &"end"
+
 [node name="Collision_monster" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+visible = false
 shape = SubResource("CircleShape2D_a8efm")
 disabled = true
 
@@ -207,6 +331,7 @@ texture = SubResource("CompressedTexture2D_oqa3l")
 
 [node name="Area_die" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 collision_layer = 8
 collision_mask = 18
 
@@ -229,6 +354,12 @@ unique_name_in_owner = true
 stream = ExtResource("8_a8efm")
 volume_db = -10.0
 max_distance = 1500.0
+
+[node name="Animation_end" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_qfkgg")
+}
 
 [connection signal="area_entered" from="Area_die" to="." method="_on_area_die_area_entered"]
 [connection signal="area_exited" from="Area_die" to="." method="_on_area_die_area_exited"]

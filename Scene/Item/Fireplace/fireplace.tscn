@@ -292,7 +292,7 @@ libraries = {
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-13, -170)
+position = Vector2(-1, -17)
 shape = SubResource("CircleShape2D_3damk")
 debug_color = Color(0.403879, 0.574665, 0.555489, 0.42)
 
@@ -316,4 +316,3 @@ max_distance = 1500.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

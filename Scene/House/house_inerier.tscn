@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bybxmub7542mv"]
+[gd_scene load_steps=18 format=3 uid="uid://bybxmub7542mv"]
 
 [ext_resource type="Script" uid="uid://b5vdqobwnnmgs" path="res://Scene/House/house_inerier.gd" id="1_7fjua"]
 [ext_resource type="Texture2D" uid="uid://1xwjrtf85nye" path="res://Sprites/House/house_inerier.png" id="1_12qwt"]
 [ext_resource type="Texture2D" uid="uid://c2hb1s238ill1" path="res://Sprites/House/house_wall.png" id="2_7fjua"]
 [ext_resource type="PackedScene" uid="uid://y58mpkq8hns3" path="res://Scene/Item/Fireplace/fireplace.tscn" id="4_e82l5"]
+[ext_resource type="PackedScene" uid="uid://cutvrayql5u4f" path="res://Scene/Item/Chair/chair.tscn" id="4_sn3a2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e82l5"]
 size = Vector2(83.75, 177.5)
@@ -82,6 +83,10 @@ texture = ExtResource("1_12qwt")
 [node name="Fireplace" parent="Items" instance=ExtResource("4_e82l5")]
 position = Vector2(144, 113)
 scale = Vector2(0.2, 0.2)
+
+[node name="Chair" parent="Items" instance=ExtResource("4_sn3a2")]
+position = Vector2(27, 132)
+scale = Vector2(-0.7, 0.7)
 
 [node name="Walls_house" type="StaticBody2D" parent="."]
 scale = Vector2(0.8, 0.8)
